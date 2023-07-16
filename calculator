@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    
+    .calculator {
+      width: 240px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .calculator input[type="text"] {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 3px;
+    }
+    
+    .calculator .row {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .calculator .row button {
+      flex: 1;
+      padding: 10px;
+      font-size: 18px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      border: none;
+      border-radius: 3px;
+      background-color: #e0e0e0;
+      cursor: pointer;
+    }
+    
+    .calculator .row button:last-child {
+      margin-right: 0;
+    }
+    
+    .calculator .row button.operator {
+      background-color: #ff9800;
+      color: #ffffff;
+    }
+    
+    .calculator .row button.clear {
+      background-color: #f44336;
+      color: #ffffff;
+    }
+    
+    .calculator .row button.equal {
+      background-color: #4caf50;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <div class="row">
+      <button onclick="addToResult('7')">7</button>
+      <button onclick="addToResult('8')">8</button>
+      <button onclick="addToResult('9')">9</button>
+      <button onclick="addToResult('+')" class="operator">+</button>
+    </div>
+    <div class="row">
+      <button onclick="addToResult('4')">4</button>
+      <button onclick="addToResult('5')">5</button>
+      <button onclick="addToResult('6')">6</button>
+      <button onclick="addToResult('-')" class="operator">-</button>
+    </div>
+    <div class="row">
+      <button onclick="addToResult('1')">1</button>
+      <button onclick="addToResult('2')">2</button>
+      <button onclick="addToResult('3')">3</button>
+      <button onclick="addToResult('*')" class="operator">*</button>
+    </div>
+    <div class="row">
+      <button onclick="addToResult('0')">0</button>
+      <button onclick="addToResult('.')">.</button>
+      <button onclick="calculateResult()" class="equal">=</button>
+      <button onclick="addToResult('/')" class="operator">/</button>
+    </div>
+    <div class="row">
+      <button onclick="clearResult()" class="clear">Clear</button>
+    </div>
+  </div>
+
+  <script>
+    function addToResult(value) {
+      document.getElementById('result').value += value;
+    }
+
+    function calculateResult() {
+      var result = eval(document.getElementById('result').value);
+      document.getElementById('result').value = result;
+    }
+
+    function clearResult() {
+      document.getElementById('result').value = '';
+    }
+  </script>
+</body>
+</html>
